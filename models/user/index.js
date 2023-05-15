@@ -26,8 +26,8 @@ function loginUser(email, password) {
     (user) => user.email === email && user.password === password
   );
   if (user) {
-    return true;
-  } else return false;
+    return { id: user.id, name: user.name, email: user.email };
+  } else throw new Error("Wrong user or password");
 }
 
 module.exports = {
